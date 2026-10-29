@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE WATCHER | Survival</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js">
+    </script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <p class="eyebrow">ARCHIVO EXPERIMENTAL // SUJETO 001</p>
+        <h1>THE <span>WATCHER</span></h1>
+        <p class="subtitle">
+            No dejes que escape. Él sabe que estás aquí.
+        </p>
+    </header>
+
+    <section class="hud">
+        <div class="hud-card">
+            <span>PUNTUACIÓN</span>
+            <strong id="score">0</strong>
+        </div>
+        <div class="hud-card">
+            <span>DISPAROS</span>
+            <strong id="shots">0</strong>
+        </div>
+        <div class="hud-card">
+            <span>IMPACTOS</span>
+            <strong id="hits">0</strong>
+        </div>
+        <div class="hud-card">
+            <span>PRECISIÓN</span>
+            <strong id="accuracy">0%</strong>
+        </div>
+    </section>
+
+    <section class="health-container">
+        <div class="health-heading">
+            <span>ESTADO DEL SUJETO</span>
+            <strong id="health-text">100 / 100</strong>
+        </div>
+        <div class="health-bar-bg">
+            <div class="health-bar-fill" id="health-bar"></div>
+        </div>
+    </section>
+
+    <main class="game-wrapper">
+        <div class="warning" id="warning">● SUJETO ACTIVO</div>
+
+        <div class="viewer-box" id="viewerBox">
+            <div class="scanlines"></div>
+
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+
+            <div class="crosshair"></div>
+
+            <model-viewer
+                id="eyeModel"
+                class="eye-target"
+                src="object/monster_eye.glb"
+                alt="Ojo monstruoso rosado"
+                camera-orbit="0deg 75deg 2.5m"
+                field-of-view="35deg"
+                interaction-prompt="none"
+                shadow-intensity="1"
+                exposure="1"
+                disable-zoom>
+            </model-viewer>
+
+            <div class="target-overlay" id="targetOverlay"></div>
+
+            <div class="screen-message" id="screenMessage">
+                <h2>SUJETO NEUTRALIZADO</h2>
+                <p>El silencio ha regresado...</p>
+                <button id="nextRound">VOLVER A INTENTAR</button>
+            </div>
+        </div>
+
+        <p class="game-status" id="gameStatus">
+            INICIANDO EXPERIMENTO...
+        </p>
+    </main>
+
+    <section class="instructions">
+        <div><kbd>CLIC IZQUIERDO</kbd> Disparar</div>
+        <div><kbd>MOVIMIENTO AUTOMÁTICO</kbd> El ojo esquiva</div>
+    </section>
+
+    <div class="controls">
+        <button id="resetButton">↻ REINICIAR EXPERIMENTO</button>
+    </div>
+
+    <footer>
+        <span>THE WATCHER © 2026</span>
+        <span>CONEXIÓN INESTABLE // NO LO MIRES FIJAMENTE</span>
+    </footer>
+</body>
+</html>
